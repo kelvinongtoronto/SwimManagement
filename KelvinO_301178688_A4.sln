@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwimManagementLibrary_301178688", "SwimManagementLibrary_301178688\SwimManagementLibrary_301178688.csproj", "{33F5AF6A-99E3-4580-BDD5-C6B9C143C2D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwimManagementForm_301178688", "SwimManagementForm_301178688\SwimManagementForm_301178688.csproj", "{597B31CB-5BC7-4825-996E-C2B177D0F283}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33F5AF6A-99E3-4580-BDD5-C6B9C143C2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F5AF6A-99E3-4580-BDD5-C6B9C143C2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F5AF6A-99E3-4580-BDD5-C6B9C143C2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F5AF6A-99E3-4580-BDD5-C6B9C143C2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{597B31CB-5BC7-4825-996E-C2B177D0F283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{597B31CB-5BC7-4825-996E-C2B177D0F283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{597B31CB-5BC7-4825-996E-C2B177D0F283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{597B31CB-5BC7-4825-996E-C2B177D0F283}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07F1D293-9BF3-44A4-8B7A-2C536C704086}
+	EndGlobalSection
+EndGlobal
