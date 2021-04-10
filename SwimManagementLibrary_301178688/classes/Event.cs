@@ -16,12 +16,7 @@ namespace SwimManagementLibrary.classes
         public List<Registrant> Swimmers { 
             get
             {
-                List<Registrant> swimmers = new List<Registrant>();
-                foreach(KeyValuePair<Registrant,Swim> swimmer in swimmingEvents)
-                {
-                    swimmers.Add(swimmer.Key);
-                }
-                return swimmers;
+                return new List<Registrant>(swimmingEvents.Keys);
             }
         }
 

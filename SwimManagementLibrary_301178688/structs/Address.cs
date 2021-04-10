@@ -23,7 +23,7 @@ namespace SwimManagementLibrary.structs
 
         public override string ToString()
         {
-            return $"{Street}, {City}, {Province}, {PostalCode}";
+            return $"\n\t{Street}\n\t{City}\n\t{Province}\n\t{PostalCode}";
         }
     }
 }
