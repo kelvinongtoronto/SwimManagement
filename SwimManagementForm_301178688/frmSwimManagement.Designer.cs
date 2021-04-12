@@ -30,7 +30,9 @@ namespace SwimManagementForm_301178688
             this.listBoxSwimmer = new System.Windows.Forms.ListBox();
             this.listBoxClub = new System.Windows.Forms.ListBox();
             this.swimmerGroup = new System.Windows.Forms.GroupBox();
-            this.dtSwimmerDob = new System.Windows.Forms.DateTimePicker();
+            this.txtSwimmerSavePath = new System.Windows.Forms.TextBox();
+            this.txtSwimmerLoadPath = new System.Windows.Forms.TextBox();
+            this.txtSwimmerDob = new System.Windows.Forms.DateTimePicker();
             this.btSaveSwimmer = new System.Windows.Forms.Button();
             this.swimmerPath = new System.Windows.Forms.Label();
             this.btLoadSwimmers = new System.Windows.Forms.Button();
@@ -43,13 +45,15 @@ namespace SwimManagementForm_301178688
             this.lbSwimCity = new System.Windows.Forms.Label();
             this.lbSwimStreet = new System.Windows.Forms.Label();
             this.lbSwimName = new System.Windows.Forms.Label();
-            this.tbSwimmerStreet = new System.Windows.Forms.TextBox();
-            this.tbSwimmerCity = new System.Windows.Forms.TextBox();
-            this.tbSwimmerProvince = new System.Windows.Forms.TextBox();
-            this.tbSwimmerPostalCode = new System.Windows.Forms.TextBox();
-            this.tbSwimmerPhoneNumber = new System.Windows.Forms.TextBox();
-            this.tbSwimmerName = new System.Windows.Forms.TextBox();
+            this.txtSwimmerStreet = new System.Windows.Forms.TextBox();
+            this.txtSwimmerCity = new System.Windows.Forms.TextBox();
+            this.txtSwimmerProvince = new System.Windows.Forms.TextBox();
+            this.txtSwimmerPostalCode = new System.Windows.Forms.TextBox();
+            this.txtSwimmerPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtSwimmerName = new System.Windows.Forms.TextBox();
             this.clubGroup = new System.Windows.Forms.GroupBox();
+            this.txtClubSavePath = new System.Windows.Forms.TextBox();
+            this.txtClubLoadPath = new System.Windows.Forms.TextBox();
             this.btSaveClub = new System.Windows.Forms.Button();
             this.btAssignSwimmer = new System.Windows.Forms.Button();
             this.clubPath = new System.Windows.Forms.Label();
@@ -62,47 +66,55 @@ namespace SwimManagementForm_301178688
             this.lbClubCity = new System.Windows.Forms.Label();
             this.lbClubStreet = new System.Windows.Forms.Label();
             this.lbClubName = new System.Windows.Forms.Label();
-            this.tbClubStreet = new System.Windows.Forms.TextBox();
-            this.tbClubCity = new System.Windows.Forms.TextBox();
-            this.tbClubProvince = new System.Windows.Forms.TextBox();
-            this.tbClubPostalCode = new System.Windows.Forms.TextBox();
-            this.tbClubPhoneNumber = new System.Windows.Forms.TextBox();
-            this.tbClubName = new System.Windows.Forms.TextBox();
+            this.txtClubStreet = new System.Windows.Forms.TextBox();
+            this.txtClubCity = new System.Windows.Forms.TextBox();
+            this.txtClubProvince = new System.Windows.Forms.TextBox();
+            this.txtClubPostalCode = new System.Windows.Forms.TextBox();
+            this.txtClubPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtClubName = new System.Windows.Forms.TextBox();
             this.openFileDialogSwimmer = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogClub = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSwimmer = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogClub = new System.Windows.Forms.SaveFileDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.swimmerGroup.SuspendLayout();
             this.clubGroup.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxSwimmer
             // 
             this.listBoxSwimmer.FormattingEnabled = true;
-            this.listBoxSwimmer.Location = new System.Drawing.Point(15, 63);
-            this.listBoxSwimmer.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxSwimmer.ItemHeight = 24;
+            this.listBoxSwimmer.Location = new System.Drawing.Point(28, 116);
+            this.listBoxSwimmer.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxSwimmer.Name = "listBoxSwimmer";
-            this.listBoxSwimmer.Size = new System.Drawing.Size(176, 121);
+            this.listBoxSwimmer.Size = new System.Drawing.Size(362, 220);
             this.listBoxSwimmer.TabIndex = 53;
             this.listBoxSwimmer.SelectedIndexChanged += new System.EventHandler(this.listBoxSwimmer_SelectedIndexChanged);
             // 
             // listBoxClub
             // 
             this.listBoxClub.FormattingEnabled = true;
-            this.listBoxClub.Location = new System.Drawing.Point(15, 63);
-            this.listBoxClub.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxClub.ItemHeight = 24;
+            this.listBoxClub.Location = new System.Drawing.Point(28, 116);
+            this.listBoxClub.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxClub.Name = "listBoxClub";
-            this.listBoxClub.Size = new System.Drawing.Size(176, 121);
+            this.listBoxClub.Size = new System.Drawing.Size(373, 220);
             this.listBoxClub.TabIndex = 3;
             this.listBoxClub.SelectedIndexChanged += new System.EventHandler(this.listBoxClub_SelectedIndexChanged);
             // 
             // swimmerGroup
             // 
-            this.swimmerGroup.Controls.Add(this.dtSwimmerDob);
+            this.swimmerGroup.Controls.Add(this.groupBox2);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerSavePath);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerLoadPath);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerDob);
             this.swimmerGroup.Controls.Add(this.btSaveSwimmer);
             this.swimmerGroup.Controls.Add(this.swimmerPath);
             this.swimmerGroup.Controls.Add(this.btLoadSwimmers);
-            this.swimmerGroup.Controls.Add(this.swimmerDetails);
             this.swimmerGroup.Controls.Add(this.btSwimmer);
             this.swimmerGroup.Controls.Add(this.lbSwimDob);
             this.swimmerGroup.Controls.Add(this.lbSwimPhone);
@@ -111,35 +123,50 @@ namespace SwimManagementForm_301178688
             this.swimmerGroup.Controls.Add(this.lbSwimCity);
             this.swimmerGroup.Controls.Add(this.lbSwimStreet);
             this.swimmerGroup.Controls.Add(this.lbSwimName);
-            this.swimmerGroup.Controls.Add(this.tbSwimmerStreet);
-            this.swimmerGroup.Controls.Add(this.tbSwimmerCity);
-            this.swimmerGroup.Controls.Add(this.tbSwimmerProvince);
-            this.swimmerGroup.Controls.Add(this.tbSwimmerPostalCode);
-            this.swimmerGroup.Controls.Add(this.tbSwimmerPhoneNumber);
-            this.swimmerGroup.Controls.Add(this.tbSwimmerName);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerStreet);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerCity);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerProvince);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerPostalCode);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerPhoneNumber);
+            this.swimmerGroup.Controls.Add(this.txtSwimmerName);
             this.swimmerGroup.Controls.Add(this.listBoxSwimmer);
-            this.swimmerGroup.Location = new System.Drawing.Point(471, 10);
-            this.swimmerGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.swimmerGroup.Location = new System.Drawing.Point(864, 18);
+            this.swimmerGroup.Margin = new System.Windows.Forms.Padding(4);
             this.swimmerGroup.Name = "swimmerGroup";
-            this.swimmerGroup.Padding = new System.Windows.Forms.Padding(2);
-            this.swimmerGroup.Size = new System.Drawing.Size(433, 433);
+            this.swimmerGroup.Padding = new System.Windows.Forms.Padding(4);
+            this.swimmerGroup.Size = new System.Drawing.Size(773, 867);
             this.swimmerGroup.TabIndex = 50;
             this.swimmerGroup.TabStop = false;
             this.swimmerGroup.Text = "Swimmer";
             // 
-            // dtSwimmerDob
+            // txtSwimmerSavePath
             // 
-            this.dtSwimmerDob.Location = new System.Drawing.Point(292, 205);
-            this.dtSwimmerDob.Name = "dtSwimmerDob";
-            this.dtSwimmerDob.Size = new System.Drawing.Size(120, 20);
-            this.dtSwimmerDob.TabIndex = 60;
+            this.txtSwimmerSavePath.Location = new System.Drawing.Point(277, 790);
+            this.txtSwimmerSavePath.Name = "txtSwimmerSavePath";
+            this.txtSwimmerSavePath.Size = new System.Drawing.Size(395, 29);
+            this.txtSwimmerSavePath.TabIndex = 52;
+            // 
+            // txtSwimmerLoadPath
+            // 
+            this.txtSwimmerLoadPath.Location = new System.Drawing.Point(277, 48);
+            this.txtSwimmerLoadPath.Name = "txtSwimmerLoadPath";
+            this.txtSwimmerLoadPath.Size = new System.Drawing.Size(395, 29);
+            this.txtSwimmerLoadPath.TabIndex = 100;
+            // 
+            // txtSwimmerDob
+            // 
+            this.txtSwimmerDob.Location = new System.Drawing.Point(172, 634);
+            this.txtSwimmerDob.Margin = new System.Windows.Forms.Padding(6);
+            this.txtSwimmerDob.Name = "txtSwimmerDob";
+            this.txtSwimmerDob.Size = new System.Drawing.Size(217, 29);
+            this.txtSwimmerDob.TabIndex = 60;
             // 
             // btSaveSwimmer
             // 
-            this.btSaveSwimmer.Location = new System.Drawing.Point(15, 199);
-            this.btSaveSwimmer.Margin = new System.Windows.Forms.Padding(2);
+            this.btSaveSwimmer.Location = new System.Drawing.Point(18, 790);
+            this.btSaveSwimmer.Margin = new System.Windows.Forms.Padding(4);
             this.btSaveSwimmer.Name = "btSaveSwimmer";
-            this.btSaveSwimmer.Size = new System.Drawing.Size(120, 20);
+            this.btSaveSwimmer.Size = new System.Drawing.Size(220, 37);
             this.btSaveSwimmer.TabIndex = 52;
             this.btSaveSwimmer.Text = "Save Swimmers";
             this.btSaveSwimmer.UseVisualStyleBackColor = true;
@@ -148,18 +175,18 @@ namespace SwimManagementForm_301178688
             // swimmerPath
             // 
             this.swimmerPath.AutoSize = true;
-            this.swimmerPath.Location = new System.Drawing.Point(138, 28);
-            this.swimmerPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.swimmerPath.Location = new System.Drawing.Point(253, 52);
+            this.swimmerPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.swimmerPath.Name = "swimmerPath";
-            this.swimmerPath.Size = new System.Drawing.Size(0, 13);
+            this.swimmerPath.Size = new System.Drawing.Size(0, 25);
             this.swimmerPath.TabIndex = 98;
             // 
             // btLoadSwimmers
             // 
-            this.btLoadSwimmers.Location = new System.Drawing.Point(15, 24);
-            this.btLoadSwimmers.Margin = new System.Windows.Forms.Padding(2);
+            this.btLoadSwimmers.Location = new System.Drawing.Point(28, 44);
+            this.btLoadSwimmers.Margin = new System.Windows.Forms.Padding(4);
             this.btLoadSwimmers.Name = "btLoadSwimmers";
-            this.btLoadSwimmers.Size = new System.Drawing.Size(120, 20);
+            this.btLoadSwimmers.Size = new System.Drawing.Size(220, 37);
             this.btLoadSwimmers.TabIndex = 51;
             this.btLoadSwimmers.Text = "Load Swimmers";
             this.btLoadSwimmers.UseVisualStyleBackColor = true;
@@ -168,18 +195,18 @@ namespace SwimManagementForm_301178688
             // swimmerDetails
             // 
             this.swimmerDetails.AutoSize = true;
-            this.swimmerDetails.Location = new System.Drawing.Point(15, 240);
-            this.swimmerDetails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.swimmerDetails.Location = new System.Drawing.Point(21, 25);
+            this.swimmerDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.swimmerDetails.Name = "swimmerDetails";
-            this.swimmerDetails.Size = new System.Drawing.Size(0, 13);
+            this.swimmerDetails.Size = new System.Drawing.Size(0, 25);
             this.swimmerDetails.TabIndex = 99;
             // 
             // btSwimmer
             // 
-            this.btSwimmer.Location = new System.Drawing.Point(292, 267);
-            this.btSwimmer.Margin = new System.Windows.Forms.Padding(2);
+            this.btSwimmer.Location = new System.Drawing.Point(21, 699);
+            this.btSwimmer.Margin = new System.Windows.Forms.Padding(4);
             this.btSwimmer.Name = "btSwimmer";
-            this.btSwimmer.Size = new System.Drawing.Size(120, 20);
+            this.btSwimmer.Size = new System.Drawing.Size(220, 37);
             this.btSwimmer.TabIndex = 61;
             this.btSwimmer.Text = "Add Swimmer";
             this.btSwimmer.UseVisualStyleBackColor = true;
@@ -188,157 +215,173 @@ namespace SwimManagementForm_301178688
             // lbSwimDob
             // 
             this.lbSwimDob.AutoSize = true;
-            this.lbSwimDob.Location = new System.Drawing.Point(210, 206);
-            this.lbSwimDob.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSwimDob.Location = new System.Drawing.Point(22, 636);
+            this.lbSwimDob.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSwimDob.Name = "lbSwimDob";
-            this.lbSwimDob.Size = new System.Drawing.Size(66, 13);
+            this.lbSwimDob.Size = new System.Drawing.Size(118, 25);
             this.lbSwimDob.TabIndex = 97;
             this.lbSwimDob.Text = "Date of Birth";
             // 
             // lbSwimPhone
             // 
             this.lbSwimPhone.AutoSize = true;
-            this.lbSwimPhone.Location = new System.Drawing.Point(210, 183);
-            this.lbSwimPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSwimPhone.Location = new System.Drawing.Point(22, 594);
+            this.lbSwimPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSwimPhone.Name = "lbSwimPhone";
-            this.lbSwimPhone.Size = new System.Drawing.Size(78, 13);
+            this.lbSwimPhone.Size = new System.Drawing.Size(143, 25);
             this.lbSwimPhone.TabIndex = 96;
             this.lbSwimPhone.Text = "Phone Number";
             // 
             // lvSwimPost
             // 
             this.lvSwimPost.AutoSize = true;
-            this.lvSwimPost.Location = new System.Drawing.Point(210, 159);
-            this.lvSwimPost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lvSwimPost.Location = new System.Drawing.Point(22, 550);
+            this.lvSwimPost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvSwimPost.Name = "lvSwimPost";
-            this.lvSwimPost.Size = new System.Drawing.Size(64, 13);
+            this.lvSwimPost.Size = new System.Drawing.Size(119, 25);
             this.lvSwimPost.TabIndex = 95;
             this.lvSwimPost.Text = "Postal Code";
             // 
             // lbSwimProv
             // 
             this.lbSwimProv.AutoSize = true;
-            this.lbSwimProv.Location = new System.Drawing.Point(210, 136);
-            this.lbSwimProv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSwimProv.Location = new System.Drawing.Point(22, 507);
+            this.lbSwimProv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSwimProv.Name = "lbSwimProv";
-            this.lbSwimProv.Size = new System.Drawing.Size(49, 13);
+            this.lbSwimProv.Size = new System.Drawing.Size(88, 25);
             this.lbSwimProv.TabIndex = 94;
             this.lbSwimProv.Text = "Province";
             // 
             // lbSwimCity
             // 
             this.lbSwimCity.AutoSize = true;
-            this.lbSwimCity.Location = new System.Drawing.Point(210, 113);
-            this.lbSwimCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSwimCity.Location = new System.Drawing.Point(22, 465);
+            this.lbSwimCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSwimCity.Name = "lbSwimCity";
-            this.lbSwimCity.Size = new System.Drawing.Size(24, 13);
+            this.lbSwimCity.Size = new System.Drawing.Size(46, 25);
             this.lbSwimCity.TabIndex = 93;
             this.lbSwimCity.Text = "City";
             // 
             // lbSwimStreet
             // 
             this.lbSwimStreet.AutoSize = true;
-            this.lbSwimStreet.Location = new System.Drawing.Point(210, 89);
-            this.lbSwimStreet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSwimStreet.Location = new System.Drawing.Point(22, 420);
+            this.lbSwimStreet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSwimStreet.Name = "lbSwimStreet";
-            this.lbSwimStreet.Size = new System.Drawing.Size(35, 13);
+            this.lbSwimStreet.Size = new System.Drawing.Size(64, 25);
             this.lbSwimStreet.TabIndex = 92;
             this.lbSwimStreet.Text = "Street";
             // 
             // lbSwimName
             // 
             this.lbSwimName.AutoSize = true;
-            this.lbSwimName.Location = new System.Drawing.Point(210, 66);
-            this.lbSwimName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbSwimName.Location = new System.Drawing.Point(22, 378);
+            this.lbSwimName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSwimName.Name = "lbSwimName";
-            this.lbSwimName.Size = new System.Drawing.Size(80, 13);
+            this.lbSwimName.Size = new System.Drawing.Size(150, 25);
             this.lbSwimName.TabIndex = 91;
             this.lbSwimName.Text = "Swimmer Name";
             // 
-            // tbSwimmerStreet
+            // txtSwimmerStreet
             // 
-            this.tbSwimmerStreet.Location = new System.Drawing.Point(292, 87);
-            this.tbSwimmerStreet.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSwimmerStreet.Name = "tbSwimmerStreet";
-            this.tbSwimmerStreet.Size = new System.Drawing.Size(120, 20);
-            this.tbSwimmerStreet.TabIndex = 55;
+            this.txtSwimmerStreet.Location = new System.Drawing.Point(172, 417);
+            this.txtSwimmerStreet.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSwimmerStreet.Name = "txtSwimmerStreet";
+            this.txtSwimmerStreet.Size = new System.Drawing.Size(217, 29);
+            this.txtSwimmerStreet.TabIndex = 55;
             // 
-            // tbSwimmerCity
+            // txtSwimmerCity
             // 
-            this.tbSwimmerCity.Location = new System.Drawing.Point(292, 110);
-            this.tbSwimmerCity.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSwimmerCity.Name = "tbSwimmerCity";
-            this.tbSwimmerCity.Size = new System.Drawing.Size(120, 20);
-            this.tbSwimmerCity.TabIndex = 56;
+            this.txtSwimmerCity.Location = new System.Drawing.Point(172, 459);
+            this.txtSwimmerCity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSwimmerCity.Name = "txtSwimmerCity";
+            this.txtSwimmerCity.Size = new System.Drawing.Size(217, 29);
+            this.txtSwimmerCity.TabIndex = 56;
             // 
-            // tbSwimmerProvince
+            // txtSwimmerProvince
             // 
-            this.tbSwimmerProvince.Location = new System.Drawing.Point(292, 133);
-            this.tbSwimmerProvince.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSwimmerProvince.Name = "tbSwimmerProvince";
-            this.tbSwimmerProvince.Size = new System.Drawing.Size(120, 20);
-            this.tbSwimmerProvince.TabIndex = 57;
+            this.txtSwimmerProvince.Location = new System.Drawing.Point(172, 502);
+            this.txtSwimmerProvince.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSwimmerProvince.Name = "txtSwimmerProvince";
+            this.txtSwimmerProvince.Size = new System.Drawing.Size(217, 29);
+            this.txtSwimmerProvince.TabIndex = 57;
             // 
-            // tbSwimmerPostalCode
+            // txtSwimmerPostalCode
             // 
-            this.tbSwimmerPostalCode.Location = new System.Drawing.Point(292, 157);
-            this.tbSwimmerPostalCode.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSwimmerPostalCode.Name = "tbSwimmerPostalCode";
-            this.tbSwimmerPostalCode.Size = new System.Drawing.Size(120, 20);
-            this.tbSwimmerPostalCode.TabIndex = 58;
+            this.txtSwimmerPostalCode.Location = new System.Drawing.Point(172, 546);
+            this.txtSwimmerPostalCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSwimmerPostalCode.Name = "txtSwimmerPostalCode";
+            this.txtSwimmerPostalCode.Size = new System.Drawing.Size(217, 29);
+            this.txtSwimmerPostalCode.TabIndex = 58;
             // 
-            // tbSwimmerPhoneNumber
+            // txtSwimmerPhoneNumber
             // 
-            this.tbSwimmerPhoneNumber.Location = new System.Drawing.Point(292, 180);
-            this.tbSwimmerPhoneNumber.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSwimmerPhoneNumber.Name = "tbSwimmerPhoneNumber";
-            this.tbSwimmerPhoneNumber.Size = new System.Drawing.Size(120, 20);
-            this.tbSwimmerPhoneNumber.TabIndex = 59;
+            this.txtSwimmerPhoneNumber.Location = new System.Drawing.Point(172, 588);
+            this.txtSwimmerPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSwimmerPhoneNumber.Name = "txtSwimmerPhoneNumber";
+            this.txtSwimmerPhoneNumber.Size = new System.Drawing.Size(217, 29);
+            this.txtSwimmerPhoneNumber.TabIndex = 59;
             // 
-            // tbSwimmerName
+            // txtSwimmerName
             // 
-            this.tbSwimmerName.Location = new System.Drawing.Point(292, 63);
-            this.tbSwimmerName.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSwimmerName.Name = "tbSwimmerName";
-            this.tbSwimmerName.Size = new System.Drawing.Size(120, 20);
-            this.tbSwimmerName.TabIndex = 54;
+            this.txtSwimmerName.Location = new System.Drawing.Point(172, 372);
+            this.txtSwimmerName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSwimmerName.Name = "txtSwimmerName";
+            this.txtSwimmerName.Size = new System.Drawing.Size(217, 29);
+            this.txtSwimmerName.TabIndex = 54;
             // 
             // clubGroup
             // 
+            this.clubGroup.Controls.Add(this.groupBox1);
+            this.clubGroup.Controls.Add(this.txtClubSavePath);
+            this.clubGroup.Controls.Add(this.txtClubLoadPath);
             this.clubGroup.Controls.Add(this.btSaveClub);
             this.clubGroup.Controls.Add(this.btAssignSwimmer);
             this.clubGroup.Controls.Add(this.clubPath);
             this.clubGroup.Controls.Add(this.btLoadClubs);
             this.clubGroup.Controls.Add(this.btAddClub);
-            this.clubGroup.Controls.Add(this.clubDetails);
             this.clubGroup.Controls.Add(this.lbClubPhone);
             this.clubGroup.Controls.Add(this.lbClubPost);
             this.clubGroup.Controls.Add(this.lbClubProv);
             this.clubGroup.Controls.Add(this.lbClubCity);
             this.clubGroup.Controls.Add(this.lbClubStreet);
             this.clubGroup.Controls.Add(this.lbClubName);
-            this.clubGroup.Controls.Add(this.tbClubStreet);
-            this.clubGroup.Controls.Add(this.tbClubCity);
-            this.clubGroup.Controls.Add(this.tbClubProvince);
-            this.clubGroup.Controls.Add(this.tbClubPostalCode);
-            this.clubGroup.Controls.Add(this.tbClubPhoneNumber);
-            this.clubGroup.Controls.Add(this.tbClubName);
+            this.clubGroup.Controls.Add(this.txtClubStreet);
+            this.clubGroup.Controls.Add(this.txtClubCity);
+            this.clubGroup.Controls.Add(this.txtClubProvince);
+            this.clubGroup.Controls.Add(this.txtClubPostalCode);
+            this.clubGroup.Controls.Add(this.txtClubPhoneNumber);
+            this.clubGroup.Controls.Add(this.txtClubName);
             this.clubGroup.Controls.Add(this.listBoxClub);
-            this.clubGroup.Location = new System.Drawing.Point(9, 10);
-            this.clubGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.clubGroup.Location = new System.Drawing.Point(17, 18);
+            this.clubGroup.Margin = new System.Windows.Forms.Padding(4);
             this.clubGroup.Name = "clubGroup";
-            this.clubGroup.Padding = new System.Windows.Forms.Padding(2);
-            this.clubGroup.Size = new System.Drawing.Size(433, 433);
+            this.clubGroup.Padding = new System.Windows.Forms.Padding(4);
+            this.clubGroup.Size = new System.Drawing.Size(794, 867);
             this.clubGroup.TabIndex = 0;
             this.clubGroup.TabStop = false;
             this.clubGroup.Text = "Club";
             // 
+            // txtClubSavePath
+            // 
+            this.txtClubSavePath.Location = new System.Drawing.Point(281, 780);
+            this.txtClubSavePath.Name = "txtClubSavePath";
+            this.txtClubSavePath.Size = new System.Drawing.Size(395, 29);
+            this.txtClubSavePath.TabIndex = 51;
+            // 
+            // txtClubLoadPath
+            // 
+            this.txtClubLoadPath.Location = new System.Drawing.Point(272, 47);
+            this.txtClubLoadPath.Name = "txtClubLoadPath";
+            this.txtClubLoadPath.Size = new System.Drawing.Size(395, 29);
+            this.txtClubLoadPath.TabIndex = 50;
+            // 
             // btSaveClub
             // 
-            this.btSaveClub.Location = new System.Drawing.Point(15, 199);
-            this.btSaveClub.Margin = new System.Windows.Forms.Padding(2);
+            this.btSaveClub.Location = new System.Drawing.Point(23, 777);
+            this.btSaveClub.Margin = new System.Windows.Forms.Padding(4);
             this.btSaveClub.Name = "btSaveClub";
-            this.btSaveClub.Size = new System.Drawing.Size(120, 20);
+            this.btSaveClub.Size = new System.Drawing.Size(220, 37);
             this.btSaveClub.TabIndex = 2;
             this.btSaveClub.Text = "Save Clubs";
             this.btSaveClub.UseVisualStyleBackColor = true;
@@ -346,10 +389,10 @@ namespace SwimManagementForm_301178688
             // 
             // btAssignSwimmer
             // 
-            this.btAssignSwimmer.Location = new System.Drawing.Point(296, 242);
-            this.btAssignSwimmer.Margin = new System.Windows.Forms.Padding(2);
+            this.btAssignSwimmer.Location = new System.Drawing.Point(27, 352);
+            this.btAssignSwimmer.Margin = new System.Windows.Forms.Padding(4);
             this.btAssignSwimmer.Name = "btAssignSwimmer";
-            this.btAssignSwimmer.Size = new System.Drawing.Size(120, 20);
+            this.btAssignSwimmer.Size = new System.Drawing.Size(220, 37);
             this.btAssignSwimmer.TabIndex = 10;
             this.btAssignSwimmer.Text = "Assign Swimmer";
             this.btAssignSwimmer.UseVisualStyleBackColor = true;
@@ -358,18 +401,18 @@ namespace SwimManagementForm_301178688
             // clubPath
             // 
             this.clubPath.AutoSize = true;
-            this.clubPath.Location = new System.Drawing.Point(139, 28);
-            this.clubPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.clubPath.Location = new System.Drawing.Point(255, 52);
+            this.clubPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.clubPath.Name = "clubPath";
-            this.clubPath.Size = new System.Drawing.Size(0, 13);
+            this.clubPath.Size = new System.Drawing.Size(0, 25);
             this.clubPath.TabIndex = 48;
             // 
             // btLoadClubs
             // 
-            this.btLoadClubs.Location = new System.Drawing.Point(15, 24);
-            this.btLoadClubs.Margin = new System.Windows.Forms.Padding(2);
+            this.btLoadClubs.Location = new System.Drawing.Point(28, 44);
+            this.btLoadClubs.Margin = new System.Windows.Forms.Padding(4);
             this.btLoadClubs.Name = "btLoadClubs";
-            this.btLoadClubs.Size = new System.Drawing.Size(120, 20);
+            this.btLoadClubs.Size = new System.Drawing.Size(220, 37);
             this.btLoadClubs.TabIndex = 1;
             this.btLoadClubs.Text = "Load Clubs";
             this.btLoadClubs.UseVisualStyleBackColor = true;
@@ -377,10 +420,10 @@ namespace SwimManagementForm_301178688
             // 
             // btAddClub
             // 
-            this.btAddClub.Location = new System.Drawing.Point(296, 271);
-            this.btAddClub.Margin = new System.Windows.Forms.Padding(2);
+            this.btAddClub.Location = new System.Drawing.Point(23, 691);
+            this.btAddClub.Margin = new System.Windows.Forms.Padding(4);
             this.btAddClub.Name = "btAddClub";
-            this.btAddClub.Size = new System.Drawing.Size(120, 20);
+            this.btAddClub.Size = new System.Drawing.Size(220, 37);
             this.btAddClub.TabIndex = 11;
             this.btAddClub.Text = "Add  Club";
             this.btAddClub.UseVisualStyleBackColor = true;
@@ -390,134 +433,161 @@ namespace SwimManagementForm_301178688
             // 
             this.clubDetails.AutoSize = true;
             this.clubDetails.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.clubDetails.Location = new System.Drawing.Point(15, 240);
-            this.clubDetails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.clubDetails.Location = new System.Drawing.Point(36, 35);
+            this.clubDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.clubDetails.Name = "clubDetails";
-            this.clubDetails.Size = new System.Drawing.Size(0, 13);
+            this.clubDetails.Size = new System.Drawing.Size(0, 25);
             this.clubDetails.TabIndex = 49;
             // 
             // lbClubPhone
             // 
             this.lbClubPhone.AutoSize = true;
-            this.lbClubPhone.Location = new System.Drawing.Point(211, 183);
-            this.lbClubPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClubPhone.Location = new System.Drawing.Point(23, 630);
+            this.lbClubPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClubPhone.Name = "lbClubPhone";
-            this.lbClubPhone.Size = new System.Drawing.Size(78, 13);
+            this.lbClubPhone.Size = new System.Drawing.Size(143, 25);
             this.lbClubPhone.TabIndex = 47;
             this.lbClubPhone.Text = "Phone Number";
             // 
             // lbClubPost
             // 
             this.lbClubPost.AutoSize = true;
-            this.lbClubPost.Location = new System.Drawing.Point(211, 160);
-            this.lbClubPost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClubPost.Location = new System.Drawing.Point(23, 587);
+            this.lbClubPost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClubPost.Name = "lbClubPost";
-            this.lbClubPost.Size = new System.Drawing.Size(64, 13);
+            this.lbClubPost.Size = new System.Drawing.Size(119, 25);
             this.lbClubPost.TabIndex = 46;
             this.lbClubPost.Text = "Postal Code";
             // 
             // lbClubProv
             // 
             this.lbClubProv.AutoSize = true;
-            this.lbClubProv.Location = new System.Drawing.Point(211, 136);
-            this.lbClubProv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClubProv.Location = new System.Drawing.Point(23, 543);
+            this.lbClubProv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClubProv.Name = "lbClubProv";
-            this.lbClubProv.Size = new System.Drawing.Size(49, 13);
+            this.lbClubProv.Size = new System.Drawing.Size(88, 25);
             this.lbClubProv.TabIndex = 45;
             this.lbClubProv.Text = "Province";
             // 
             // lbClubCity
             // 
             this.lbClubCity.AutoSize = true;
-            this.lbClubCity.Location = new System.Drawing.Point(211, 113);
-            this.lbClubCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClubCity.Location = new System.Drawing.Point(23, 501);
+            this.lbClubCity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClubCity.Name = "lbClubCity";
-            this.lbClubCity.Size = new System.Drawing.Size(24, 13);
+            this.lbClubCity.Size = new System.Drawing.Size(46, 25);
             this.lbClubCity.TabIndex = 44;
             this.lbClubCity.Text = "City";
             // 
             // lbClubStreet
             // 
             this.lbClubStreet.AutoSize = true;
-            this.lbClubStreet.Location = new System.Drawing.Point(211, 89);
-            this.lbClubStreet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClubStreet.Location = new System.Drawing.Point(23, 456);
+            this.lbClubStreet.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClubStreet.Name = "lbClubStreet";
-            this.lbClubStreet.Size = new System.Drawing.Size(35, 13);
+            this.lbClubStreet.Size = new System.Drawing.Size(64, 25);
             this.lbClubStreet.TabIndex = 43;
             this.lbClubStreet.Text = "Street";
             // 
             // lbClubName
             // 
             this.lbClubName.AutoSize = true;
-            this.lbClubName.Location = new System.Drawing.Point(211, 66);
-            this.lbClubName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbClubName.Location = new System.Drawing.Point(23, 414);
+            this.lbClubName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbClubName.Name = "lbClubName";
-            this.lbClubName.Size = new System.Drawing.Size(59, 13);
+            this.lbClubName.Size = new System.Drawing.Size(110, 25);
             this.lbClubName.TabIndex = 42;
             this.lbClubName.Text = "Club Name";
             // 
-            // tbClubStreet
+            // txtClubStreet
             // 
-            this.tbClubStreet.Location = new System.Drawing.Point(296, 87);
-            this.tbClubStreet.Margin = new System.Windows.Forms.Padding(2);
-            this.tbClubStreet.Name = "tbClubStreet";
-            this.tbClubStreet.Size = new System.Drawing.Size(120, 20);
-            this.tbClubStreet.TabIndex = 5;
+            this.txtClubStreet.Location = new System.Drawing.Point(179, 453);
+            this.txtClubStreet.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClubStreet.Name = "txtClubStreet";
+            this.txtClubStreet.Size = new System.Drawing.Size(217, 29);
+            this.txtClubStreet.TabIndex = 5;
             // 
-            // tbClubCity
+            // txtClubCity
             // 
-            this.tbClubCity.Location = new System.Drawing.Point(296, 110);
-            this.tbClubCity.Margin = new System.Windows.Forms.Padding(2);
-            this.tbClubCity.Name = "tbClubCity";
-            this.tbClubCity.Size = new System.Drawing.Size(120, 20);
-            this.tbClubCity.TabIndex = 6;
+            this.txtClubCity.Location = new System.Drawing.Point(179, 495);
+            this.txtClubCity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClubCity.Name = "txtClubCity";
+            this.txtClubCity.Size = new System.Drawing.Size(217, 29);
+            this.txtClubCity.TabIndex = 6;
             // 
-            // tbClubProvince
+            // txtClubProvince
             // 
-            this.tbClubProvince.Location = new System.Drawing.Point(296, 133);
-            this.tbClubProvince.Margin = new System.Windows.Forms.Padding(2);
-            this.tbClubProvince.Name = "tbClubProvince";
-            this.tbClubProvince.Size = new System.Drawing.Size(120, 20);
-            this.tbClubProvince.TabIndex = 7;
+            this.txtClubProvince.Location = new System.Drawing.Point(179, 538);
+            this.txtClubProvince.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClubProvince.Name = "txtClubProvince";
+            this.txtClubProvince.Size = new System.Drawing.Size(217, 29);
+            this.txtClubProvince.TabIndex = 7;
             // 
-            // tbClubPostalCode
+            // txtClubPostalCode
             // 
-            this.tbClubPostalCode.Location = new System.Drawing.Point(296, 157);
-            this.tbClubPostalCode.Margin = new System.Windows.Forms.Padding(2);
-            this.tbClubPostalCode.Name = "tbClubPostalCode";
-            this.tbClubPostalCode.Size = new System.Drawing.Size(120, 20);
-            this.tbClubPostalCode.TabIndex = 8;
+            this.txtClubPostalCode.Location = new System.Drawing.Point(179, 582);
+            this.txtClubPostalCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClubPostalCode.Name = "txtClubPostalCode";
+            this.txtClubPostalCode.Size = new System.Drawing.Size(217, 29);
+            this.txtClubPostalCode.TabIndex = 8;
             // 
-            // tbClubPhoneNumber
+            // txtClubPhoneNumber
             // 
-            this.tbClubPhoneNumber.Location = new System.Drawing.Point(296, 180);
-            this.tbClubPhoneNumber.Margin = new System.Windows.Forms.Padding(2);
-            this.tbClubPhoneNumber.Name = "tbClubPhoneNumber";
-            this.tbClubPhoneNumber.Size = new System.Drawing.Size(120, 20);
-            this.tbClubPhoneNumber.TabIndex = 9;
+            this.txtClubPhoneNumber.Location = new System.Drawing.Point(179, 624);
+            this.txtClubPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClubPhoneNumber.Name = "txtClubPhoneNumber";
+            this.txtClubPhoneNumber.Size = new System.Drawing.Size(217, 29);
+            this.txtClubPhoneNumber.TabIndex = 9;
             // 
-            // tbClubName
+            // txtClubName
             // 
-            this.tbClubName.Location = new System.Drawing.Point(296, 63);
-            this.tbClubName.Margin = new System.Windows.Forms.Padding(2);
-            this.tbClubName.Name = "tbClubName";
-            this.tbClubName.Size = new System.Drawing.Size(120, 20);
-            this.tbClubName.TabIndex = 4;
+            this.txtClubName.Location = new System.Drawing.Point(179, 408);
+            this.txtClubName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClubName.Name = "txtClubName";
+            this.txtClubName.Size = new System.Drawing.Size(217, 29);
+            this.txtClubName.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox1.Controls.Add(this.clubDetails);
+            this.groupBox1.Location = new System.Drawing.Point(440, 116);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(331, 612);
+            this.groupBox1.TabIndex = 52;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Club Info";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox2.Controls.Add(this.swimmerDetails);
+            this.groupBox2.Location = new System.Drawing.Point(427, 116);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(331, 612);
+            this.groupBox2.TabIndex = 101;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Swimmer Info";
             // 
             // frmSwimManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 461);
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.ClientSize = new System.Drawing.Size(1814, 969);
             this.Controls.Add(this.clubGroup);
             this.Controls.Add(this.swimmerGroup);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSwimManagement";
             this.Text = "Swimmers Management";
             this.swimmerGroup.ResumeLayout(false);
             this.swimmerGroup.PerformLayout();
             this.clubGroup.ResumeLayout(false);
             this.clubGroup.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -535,12 +605,12 @@ namespace SwimManagementForm_301178688
         private System.Windows.Forms.Label lbClubCity;
         private System.Windows.Forms.Label lbClubStreet;
         private System.Windows.Forms.Label lbClubName;
-        private System.Windows.Forms.TextBox tbClubStreet;
-        private System.Windows.Forms.TextBox tbClubCity;
-        private System.Windows.Forms.TextBox tbClubProvince;
-        private System.Windows.Forms.TextBox tbClubPostalCode;
-        private System.Windows.Forms.TextBox tbClubPhoneNumber;
-        private System.Windows.Forms.TextBox tbClubName;
+        private System.Windows.Forms.TextBox txtClubStreet;
+        private System.Windows.Forms.TextBox txtClubCity;
+        private System.Windows.Forms.TextBox txtClubProvince;
+        private System.Windows.Forms.TextBox txtClubPostalCode;
+        private System.Windows.Forms.TextBox txtClubPhoneNumber;
+        private System.Windows.Forms.TextBox txtClubName;
         private System.Windows.Forms.Label swimmerDetails;
         private System.Windows.Forms.Button btSwimmer;
         private System.Windows.Forms.Label lbSwimDob;
@@ -550,12 +620,12 @@ namespace SwimManagementForm_301178688
         private System.Windows.Forms.Label lbSwimCity;
         private System.Windows.Forms.Label lbSwimStreet;
         private System.Windows.Forms.Label lbSwimName;
-        private System.Windows.Forms.TextBox tbSwimmerStreet;
-        private System.Windows.Forms.TextBox tbSwimmerCity;
-        private System.Windows.Forms.TextBox tbSwimmerProvince;
-        private System.Windows.Forms.TextBox tbSwimmerPostalCode;
-        private System.Windows.Forms.TextBox tbSwimmerPhoneNumber;
-        private System.Windows.Forms.TextBox tbSwimmerName;
+        private System.Windows.Forms.TextBox txtSwimmerStreet;
+        private System.Windows.Forms.TextBox txtSwimmerCity;
+        private System.Windows.Forms.TextBox txtSwimmerProvince;
+        private System.Windows.Forms.TextBox txtSwimmerPostalCode;
+        private System.Windows.Forms.TextBox txtSwimmerPhoneNumber;
+        private System.Windows.Forms.TextBox txtSwimmerName;
         private System.Windows.Forms.Button btLoadSwimmers;
         private System.Windows.Forms.OpenFileDialog openFileDialogSwimmer;
         private System.Windows.Forms.Label swimmerPath;
@@ -565,9 +635,15 @@ namespace SwimManagementForm_301178688
         private System.Windows.Forms.Button btAssignSwimmer;
         private System.Windows.Forms.Button btSaveSwimmer;
         private System.Windows.Forms.Button btSaveClub;
-        private System.Windows.Forms.DateTimePicker dtSwimmerDob;
+        private System.Windows.Forms.DateTimePicker txtSwimmerDob;
         private System.Windows.Forms.SaveFileDialog saveFileDialogSwimmer;
         private System.Windows.Forms.SaveFileDialog saveFileDialogClub;
+        private System.Windows.Forms.TextBox txtSwimmerSavePath;
+        private System.Windows.Forms.TextBox txtSwimmerLoadPath;
+        private System.Windows.Forms.TextBox txtClubSavePath;
+        private System.Windows.Forms.TextBox txtClubLoadPath;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

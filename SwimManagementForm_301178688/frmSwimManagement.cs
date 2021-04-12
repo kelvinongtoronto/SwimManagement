@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace SwimManagementForm_301178688
     {
         IClubsRepository clbMngr;
         ISwimmersRepository swmMngr;
+        int selectedClubIndex = -1;
+        int selectedSwimmerIndex = -1;
         public frmSwimManagement() {
             InitializeComponent();
             clbMngr = new ClubsManager();
@@ -34,7 +37,7 @@ namespace SwimManagementForm_301178688
         //}
 
         private void btnAddClub_Click(object sender, EventArgs e) {
-            if (String.IsNullOrEmpty(tbClubName.Text))
+            if (String.IsNullOrEmpty(txtClubName.Text))
             {
                 //clubDetails.Text = "Invalid club name";
                 MessageBox.Show("Invalid club name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -42,29 +45,29 @@ namespace SwimManagementForm_301178688
             }
 
             ulong clubPhoneNumber = 0;
-            if (!ulong.TryParse(tbClubPhoneNumber.Text, out clubPhoneNumber))
+            if (!ulong.TryParse(txtClubPhoneNumber.Text, out clubPhoneNumber))
             {
                 //throw new Exception($"Phone number wrong format");
                 MessageBox.Show("Phone number wrong format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Address address = new Address(tbClubStreet.Text, tbClubCity.Text, tbClubProvince.Text, tbClubPostalCode.Text);
-            Club aClub = new Club(tbClubName.Text, address, clubPhoneNumber);
+            Address address = new Address(txtClubStreet.Text, txtClubCity.Text, txtClubProvince.Text, txtClubPostalCode.Text);
+            Club aClub = new Club(txtClubName.Text, address, clubPhoneNumber);
 
             listBoxClub.Items.Add(aClub.Name);
             clbMngr.AddClub(aClub);
-            tbClubName.Text = "";
-            tbClubPhoneNumber.Text = "";
-            tbClubStreet.Text = "";
-            tbClubCity.Text = "";
-            tbClubProvince.Text = "";
-            tbClubPostalCode.Text = "";
+            txtClubName.Text = "";
+            txtClubPhoneNumber.Text = "";
+            txtClubStreet.Text = "";
+            txtClubCity.Text = "";
+            txtClubProvince.Text = "";
+            txtClubPostalCode.Text = "";
         }
 
         private void btSwimmer_Click(object sender, EventArgs e) {
 
-            if (String.IsNullOrEmpty(tbSwimmerName.Text))
+            if (String.IsNullOrEmpty(txtSwimmerName.Text))
             {
                 //clubDetails.Text = "Invalid club name";
                 MessageBox.Show("Invalid club name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,86 +75,98 @@ namespace SwimManagementForm_301178688
             }
 
             ulong swimmerPhoneNumber = 0;
-            if (!ulong.TryParse(tbSwimmerPhoneNumber.Text, out swimmerPhoneNumber))
+            if (!ulong.TryParse(txtSwimmerPhoneNumber.Text, out swimmerPhoneNumber))
             {
                 //throw new Exception($"Phone number wrong format");
                 MessageBox.Show("Phone number wrong format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            Address address = new Address(tbSwimmerStreet.Text, tbSwimmerCity.Text, tbSwimmerProvince.Text, tbSwimmerPostalCode.Text);
+            Address address = new Address(txtSwimmerStreet.Text, txtSwimmerCity.Text, txtSwimmerProvince.Text, txtSwimmerPostalCode.Text);
 
-            Swimmer registrant = new Swimmer(tbSwimmerName.Text, dtSwimmerDob.Value, address, swimmerPhoneNumber);
+            Swimmer registrant = new Swimmer(txtSwimmerName.Text, txtSwimmerDob.Value, address, swimmerPhoneNumber);
             swmMngr.AddSwimmer(registrant);
 
             listBoxSwimmer.Items.Add(registrant.Name);
 
-            tbSwimmerName.Text = "";
-            tbSwimmerPhoneNumber.Text = "";
-            tbSwimmerStreet.Text = "";
-            tbSwimmerCity.Text = "";
-            tbSwimmerProvince.Text = "";
-            tbSwimmerPostalCode.Text = "";
+            txtSwimmerName.Text = "";
+            txtSwimmerPhoneNumber.Text = "";
+            txtSwimmerStreet.Text = "";
+            txtSwimmerCity.Text = "";
+            txtSwimmerProvince.Text = "";
+            txtSwimmerPostalCode.Text = "";
         }
 
         private void loadSwimmer_Click(object sender, EventArgs e) {
             swmMngr.Swimmers.Clear();
 
-            openFileDialogSwimmer.Title = "Load Swimmers";
-            openFileDialogSwimmer.DefaultExt = "txt";
-
-            if (openFileDialogSwimmer.ShowDialog() == DialogResult.OK)
+            if (String.IsNullOrEmpty(txtSwimmerLoadPath.Text))
             {
-                swimmerPath.Text = openFileDialogSwimmer.FileName;
+                MessageBox.Show("Please enter valid swimmer file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                try
-                {
-                    swmMngr.LoadSwimmers(openFileDialogSwimmer.FileName, ",");
-                }
-                catch (Exception ex)
-                {
-                    //Console.WriteLine(ex.Message);
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            if (!File.Exists(txtSwimmerLoadPath.Text))
+            {
+                MessageBox.Show("File does not exists. Please enter correct path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                listBoxSwimmer.Items.Clear();
+            try
+            {
+                swmMngr.LoadSwimmers(txtSwimmerLoadPath.Text, ",");
+                displayClubInfo();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                for (int i = 0; i < swmMngr.Swimmers.Count; i++)
-                {
-                    listBoxSwimmer.Items.Add(swmMngr.Swimmers[i].Name);
-                }
+            listBoxSwimmer.Items.Clear();
+
+            for (int i = 0; i < swmMngr.Swimmers.Count; i++)
+            {
+                listBoxSwimmer.Items.Add(swmMngr.Swimmers[i].Name);
             }
         }
 
         private void btLoadClubs_Click(object sender, EventArgs e) {
             clbMngr.Clubs.Clear();
 
-            openFileDialogClub.Title = "Load Clubs";
-            openFileDialogClub.DefaultExt = "txt";
-
-            if (openFileDialogClub.ShowDialog() == DialogResult.OK)
+          
+            if (String.IsNullOrEmpty(txtClubLoadPath.Text))
             {
-                clubPath.Text = openFileDialogClub.FileName;
-
-                try
-                {
-                    clbMngr.LoadClubs(openFileDialogClub.FileName, ",");
-                }
-                catch (Exception ex)
-                {
-                    //Console.WriteLine(ex.Message);
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                listBoxClub.Items.Clear();
-
-                for (int i = 0; i < clbMngr.Clubs.Count; i++)
-                {
-                    listBoxClub.Items.Add(clbMngr.Clubs[i].Name);
-                }
-
-                btLoadSwimmers.Enabled = true;
+                MessageBox.Show("Please enter valid club file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            if (!File.Exists(txtClubLoadPath.Text))
+            {
+                MessageBox.Show("File does not exists. Please enter correct path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                clbMngr.LoadClubs(txtClubLoadPath.Text, ",");
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            listBoxClub.Items.Clear();
+
+            for (int i = 0; i < clbMngr.Clubs.Count; i++)
+            {
+                listBoxClub.Items.Add(clbMngr.Clubs[i].Name);
+            }
+
+            btLoadSwimmers.Enabled = true;
         }
 
         private void assignSwimmer_Click(object sender, EventArgs e) {
@@ -174,6 +189,9 @@ namespace SwimManagementForm_301178688
             {
                 selectedClub.AddSwimmer(selectedSwimmer);
                 MessageBox.Show("Swimmer has been assigned successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+                displayClubInfo();
+                displaySwimmerInfo();
                 listBoxClub.ClearSelected();
                 listBoxSwimmer.ClearSelected();
             }
@@ -184,9 +202,16 @@ namespace SwimManagementForm_301178688
         }
 
         private void btSaveSwimmer_Click(object sender, EventArgs e) {
+
+            if (String.IsNullOrEmpty(txtSwimmerSavePath.Text))
+            {
+                MessageBox.Show("Please enter valid file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
-                swmMngr.SaveSwimmers(swimmerPath.Text, ",");
+              
+                swmMngr.SaveSwimmers(txtSwimmerSavePath.Text, ",");
                 MessageBox.Show("Swimmers have been saved successfully.", "Save Swimmers", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -196,9 +221,16 @@ namespace SwimManagementForm_301178688
         }
 
         private void btSaveClub_Click(object sender, EventArgs e) {
+
+            if (String.IsNullOrEmpty(txtClubSavePath.Text))
+            {
+                MessageBox.Show("Please enter valid file path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
-                clbMngr.SaveClubs(clubPath.Text, ",");
+                clbMngr.SaveClubs(txtClubSavePath.Text, ",");
                 MessageBox.Show("Clubs have been saved successfully.", "Save Clubs", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -207,16 +239,33 @@ namespace SwimManagementForm_301178688
             }
         }
 
-        private void listBoxSwimmer_SelectedIndexChanged(object sender, EventArgs e) {
-            int i = listBoxSwimmer.SelectedIndex;
-            if(i >= 0 && i < swmMngr.Swimmers.Count)
-                swimmerDetails.Text = swmMngr.Swimmers[i].ToString();
+        private void listBoxSwimmer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displaySwimmerInfo();
         }
 
-        private void listBoxClub_SelectedIndexChanged(object sender, EventArgs e) {
-            int i = listBoxClub.SelectedIndex;
-            if(i >= 0 && i < clbMngr.Clubs.Count)
-                clubDetails.Text = clbMngr.Clubs[i].ToString();
+        private void displaySwimmerInfo()
+        {
+            selectedSwimmerIndex= listBoxSwimmer.SelectedIndex;
+            if (selectedSwimmerIndex >= 0 && selectedSwimmerIndex < swmMngr.Swimmers.Count)
+            {
+                swimmerDetails.Text = swmMngr.Swimmers[selectedSwimmerIndex].ToString();
+            }
+        }
+
+        private void listBoxClub_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayClubInfo();
+        }
+
+        private void displayClubInfo()
+        {
+            selectedClubIndex = listBoxClub.SelectedIndex;
+            if (selectedClubIndex >= 0 && selectedClubIndex < clbMngr.Clubs.Count)
+            {
+                clubDetails.Text = clbMngr.Clubs[selectedClubIndex].ToString();
+            }
+               
         }
     }
 }

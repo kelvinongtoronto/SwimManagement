@@ -12,7 +12,8 @@ namespace SwimManagementLibrary.classes
 
         public static uint GetNext()
         {
-            return nextRegistrationNumber++;
+            nextRegistrationNumber++;
+            return nextRegistrationNumber;
         }
     }
 }
