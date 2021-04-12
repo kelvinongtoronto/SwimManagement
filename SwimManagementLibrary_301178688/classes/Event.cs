@@ -25,13 +25,11 @@ namespace SwimManagementLibrary.classes
             swimmingEvents = new Dictionary<Registrant, Swim>();
         }
         
-        // TODO: use constructor initializer
         public Event(EventDistance distance, Stroke stroke)
         {
             Distance = distance;
             Stroke = stroke;
             swimmingEvents = new Dictionary<Registrant, Swim>();
-
         }
 
         public override string ToString()
@@ -56,8 +54,7 @@ namespace SwimManagementLibrary.classes
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
-                    continue;
+                    throw ex;
                 }
             }
 
@@ -93,7 +90,7 @@ namespace SwimManagementLibrary.classes
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                throw ex;
             }
         }
 
@@ -124,7 +121,7 @@ namespace SwimManagementLibrary.classes
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                throw ex;
             }
             
         }

@@ -12,7 +12,7 @@ namespace SwimManagementLibrary.classes
         private Coach coach;
 
         public Address ClubAddress { get; set; }
-        public uint ClubNumber { get; set; }
+        public uint ClubNumber { get; private set; }
         public string Name { get; set; }
         public ulong PhoneNumber { get; set; }
         private List<Registrant> Swimmers { get; }

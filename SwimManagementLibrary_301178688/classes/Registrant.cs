@@ -11,7 +11,7 @@ namespace SwimManagementLibrary.classes
     {
         protected Club club;
 
-        public Club Club
+        public virtual Club Club
         {
             get
             {

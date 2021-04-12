@@ -23,17 +23,6 @@ namespace SwimManagementLibrary.classes
             Events = new List<Event>();
         }
 
-        // TODO: use constructor initializer
-        public SwimMeet(string name, DateTime start, DateTime end, PoolType course, byte noOfLanes)
-        {
-            Name = name;
-            StartDate = start;
-            EndDate = end;
-            Course = course;
-            NoOfLanes = noOfLanes;
-            Events = new List<Event>();
-        }
-
         // constructor initializer
         private void SetSwimMeet(string name = "", DateTime start = default, DateTime end = default, PoolType course = PoolType.SCM, byte noOfLanes = 8 )
         {

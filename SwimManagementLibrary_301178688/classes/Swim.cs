@@ -26,7 +26,7 @@ namespace SwimManagementLibrary.classes
         {
             string swimInformation = $"H{Heat}L{Lane} time: ";
             // TODO: Format time to 00:00:00
-            swimInformation += (Time != null) ? $"{Time}" : "no time";
+            swimInformation += (Time != default) ? $"{Time}" : "no time";
             
             return swimInformation;
         }

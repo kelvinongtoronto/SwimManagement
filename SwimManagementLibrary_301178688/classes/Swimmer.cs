@@ -9,7 +9,7 @@ namespace SwimManagementLibrary.classes
 {
     public class Swimmer : Registrant
     {
-        public new Club Club
+        public override Club Club
         {
             get {
                 return club;

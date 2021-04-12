@@ -66,6 +66,10 @@ namespace SwimManagementLibrary.classes
             {
                 throw new Exception($"File {fileName} not found");
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private Club processClubRecord(string aRecord, string delimiter) {
@@ -126,6 +130,10 @@ namespace SwimManagementLibrary.classes
             catch (FileNotFoundException)
             {
                 throw new Exception($"File {fileName} not found");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
