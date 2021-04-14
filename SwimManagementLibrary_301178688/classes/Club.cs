@@ -40,21 +40,29 @@ namespace SwimManagementLibrary.classes
             } 
         }
 
-        public Club() :
-            this(RegistrationNumberGenerator.GetNext(), string.Empty, new Address("", "", "", ""), 0) {
+        public Club()
+        {
+            ClubNumber = RegistrationNumberGenerator.GetNext();
+            if (Swimmers == null)
+            {
+                Swimmers = new List<Registrant>();
+            }
 
         }
 
-        public Club(string name, Address anAddress, ulong phoneNumber) : 
-            this(RegistrationNumberGenerator.GetNext(), name, anAddress, phoneNumber) {
-        }
-
-        internal Club(uint regNumber, string name, Address anAddress, ulong phoneNumber) {
-            Name = name;
+        public Club(string name, Address anAddress, ulong phoneNumber) : this()
+        {
             ClubAddress = anAddress;
+            Name = name;
             PhoneNumber = phoneNumber;
+
+        }
+
+        internal Club(uint regNumber, Address clubAddress, string name, ulong phoneNumber) : this(name, clubAddress, phoneNumber)
+        {
+
             ClubNumber = regNumber;
-            Swimmers = new List<Registrant>();
+
         }
 
         public void AddSwimmer(Registrant aSwimmer) {

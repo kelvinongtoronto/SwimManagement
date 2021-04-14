@@ -1,7 +1,7 @@
 ﻿
 namespace SwimManagementForm_301178688
 {
-    partial class frmSwimManagement
+    partial class FormSwimManagement
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,13 +30,14 @@ namespace SwimManagementForm_301178688
             this.listBoxSwimmer = new System.Windows.Forms.ListBox();
             this.listBoxClub = new System.Windows.Forms.ListBox();
             this.swimmerGroup = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.swimmerDetails = new System.Windows.Forms.Label();
             this.txtSwimmerSavePath = new System.Windows.Forms.TextBox();
             this.txtSwimmerLoadPath = new System.Windows.Forms.TextBox();
             this.txtSwimmerDob = new System.Windows.Forms.DateTimePicker();
             this.btSaveSwimmer = new System.Windows.Forms.Button();
             this.swimmerPath = new System.Windows.Forms.Label();
             this.btLoadSwimmers = new System.Windows.Forms.Button();
-            this.swimmerDetails = new System.Windows.Forms.Label();
             this.btSwimmer = new System.Windows.Forms.Button();
             this.lbSwimDob = new System.Windows.Forms.Label();
             this.lbSwimPhone = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@ namespace SwimManagementForm_301178688
             this.txtSwimmerPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtSwimmerName = new System.Windows.Forms.TextBox();
             this.clubGroup = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clubDetails = new System.Windows.Forms.Label();
             this.txtClubSavePath = new System.Windows.Forms.TextBox();
             this.txtClubLoadPath = new System.Windows.Forms.TextBox();
             this.btSaveClub = new System.Windows.Forms.Button();
@@ -59,7 +62,6 @@ namespace SwimManagementForm_301178688
             this.clubPath = new System.Windows.Forms.Label();
             this.btLoadClubs = new System.Windows.Forms.Button();
             this.btAddClub = new System.Windows.Forms.Button();
-            this.clubDetails = new System.Windows.Forms.Label();
             this.lbClubPhone = new System.Windows.Forms.Label();
             this.lbClubPost = new System.Windows.Forms.Label();
             this.lbClubProv = new System.Windows.Forms.Label();
@@ -76,12 +78,10 @@ namespace SwimManagementForm_301178688
             this.openFileDialogClub = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialogSwimmer = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialogClub = new System.Windows.Forms.SaveFileDialog();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.swimmerGroup.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.clubGroup.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxSwimmer
@@ -139,6 +139,26 @@ namespace SwimManagementForm_301178688
             this.swimmerGroup.TabStop = false;
             this.swimmerGroup.Text = "Swimmer";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox2.Controls.Add(this.swimmerDetails);
+            this.groupBox2.Location = new System.Drawing.Point(427, 116);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(331, 612);
+            this.groupBox2.TabIndex = 101;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Swimmer Info";
+            // 
+            // swimmerDetails
+            // 
+            this.swimmerDetails.AutoSize = true;
+            this.swimmerDetails.Location = new System.Drawing.Point(21, 25);
+            this.swimmerDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.swimmerDetails.Name = "swimmerDetails";
+            this.swimmerDetails.Size = new System.Drawing.Size(0, 25);
+            this.swimmerDetails.TabIndex = 99;
+            // 
             // txtSwimmerSavePath
             // 
             this.txtSwimmerSavePath.Location = new System.Drawing.Point(277, 790);
@@ -160,6 +180,7 @@ namespace SwimManagementForm_301178688
             this.txtSwimmerDob.Name = "txtSwimmerDob";
             this.txtSwimmerDob.Size = new System.Drawing.Size(217, 29);
             this.txtSwimmerDob.TabIndex = 60;
+           
             // 
             // btSaveSwimmer
             // 
@@ -191,15 +212,6 @@ namespace SwimManagementForm_301178688
             this.btLoadSwimmers.Text = "Load Swimmers";
             this.btLoadSwimmers.UseVisualStyleBackColor = true;
             this.btLoadSwimmers.Click += new System.EventHandler(this.loadSwimmer_Click);
-            // 
-            // swimmerDetails
-            // 
-            this.swimmerDetails.AutoSize = true;
-            this.swimmerDetails.Location = new System.Drawing.Point(21, 25);
-            this.swimmerDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.swimmerDetails.Name = "swimmerDetails";
-            this.swimmerDetails.Size = new System.Drawing.Size(0, 25);
-            this.swimmerDetails.TabIndex = 99;
             // 
             // btSwimmer
             // 
@@ -362,6 +374,27 @@ namespace SwimManagementForm_301178688
             this.clubGroup.TabStop = false;
             this.clubGroup.Text = "Club";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.groupBox1.Controls.Add(this.clubDetails);
+            this.groupBox1.Location = new System.Drawing.Point(440, 116);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(331, 612);
+            this.groupBox1.TabIndex = 52;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Club Info";
+            // 
+            // clubDetails
+            // 
+            this.clubDetails.AutoSize = true;
+            this.clubDetails.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.clubDetails.Location = new System.Drawing.Point(36, 35);
+            this.clubDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.clubDetails.Name = "clubDetails";
+            this.clubDetails.Size = new System.Drawing.Size(0, 25);
+            this.clubDetails.TabIndex = 49;
+            // 
             // txtClubSavePath
             // 
             this.txtClubSavePath.Location = new System.Drawing.Point(281, 780);
@@ -428,16 +461,6 @@ namespace SwimManagementForm_301178688
             this.btAddClub.Text = "Add  Club";
             this.btAddClub.UseVisualStyleBackColor = true;
             this.btAddClub.Click += new System.EventHandler(this.btnAddClub_Click);
-            // 
-            // clubDetails
-            // 
-            this.clubDetails.AutoSize = true;
-            this.clubDetails.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.clubDetails.Location = new System.Drawing.Point(36, 35);
-            this.clubDetails.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.clubDetails.Name = "clubDetails";
-            this.clubDetails.Size = new System.Drawing.Size(0, 25);
-            this.clubDetails.TabIndex = 49;
             // 
             // lbClubPhone
             // 
@@ -547,29 +570,7 @@ namespace SwimManagementForm_301178688
             this.txtClubName.Size = new System.Drawing.Size(217, 29);
             this.txtClubName.TabIndex = 4;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox1.Controls.Add(this.clubDetails);
-            this.groupBox1.Location = new System.Drawing.Point(440, 116);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(331, 612);
-            this.groupBox1.TabIndex = 52;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Club Info";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.groupBox2.Controls.Add(this.swimmerDetails);
-            this.groupBox2.Location = new System.Drawing.Point(427, 116);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(331, 612);
-            this.groupBox2.TabIndex = 101;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Swimmer Info";
-            // 
-            // frmSwimManagement
+            // FormSwimManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -578,16 +579,16 @@ namespace SwimManagementForm_301178688
             this.Controls.Add(this.clubGroup);
             this.Controls.Add(this.swimmerGroup);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmSwimManagement";
+            this.Name = "FormSwimManagement";
             this.Text = "Swimmers Management";
             this.swimmerGroup.ResumeLayout(false);
             this.swimmerGroup.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.clubGroup.ResumeLayout(false);
             this.clubGroup.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

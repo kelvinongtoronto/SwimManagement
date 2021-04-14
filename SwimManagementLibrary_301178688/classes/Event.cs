@@ -25,11 +25,11 @@ namespace SwimManagementLibrary.classes
             swimmingEvents = new Dictionary<Registrant, Swim>();
         }
         
-        public Event(EventDistance distance, Stroke stroke)
+        public Event(EventDistance distance, Stroke stroke):this()
         {
             Distance = distance;
             Stroke = stroke;
-            swimmingEvents = new Dictionary<Registrant, Swim>();
+          
         }
 
         public override string ToString()

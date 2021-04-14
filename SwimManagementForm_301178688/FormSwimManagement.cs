@@ -15,13 +15,13 @@ using System.Windows.Forms;
 
 namespace SwimManagementForm_301178688
 {
-    public partial class frmSwimManagement : Form
+    public partial class FormSwimManagement : Form
     {
         IClubsRepository clbMngr;
         ISwimmersRepository swmMngr;
         int selectedClubIndex = -1;
         int selectedSwimmerIndex = -1;
-        public frmSwimManagement() {
+        public FormSwimManagement() {
             InitializeComponent();
             clbMngr = new ClubsManager();
             swmMngr = new SwimmersManager(clbMngr);
@@ -211,7 +211,7 @@ namespace SwimManagementForm_301178688
             try
             {
               
-                swmMngr.SaveSwimmers(txtSwimmerSavePath.Text, ",");
+                swmMngr.SaveSwimmers(txtSwimmerSavePath.Text, "|");
                 MessageBox.Show("Swimmers have been saved successfully.", "Save Swimmers", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -230,7 +230,7 @@ namespace SwimManagementForm_301178688
 
             try
             {
-                clbMngr.SaveClubs(txtClubSavePath.Text, ",");
+                clbMngr.SaveClubs(txtClubSavePath.Text, "|");
                 MessageBox.Show("Clubs have been saved successfully.", "Save Clubs", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -267,5 +267,7 @@ namespace SwimManagementForm_301178688
             }
                
         }
+
+      
     }
 }

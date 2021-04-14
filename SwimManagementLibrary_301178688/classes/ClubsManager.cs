@@ -113,7 +113,7 @@ namespace SwimManagementLibrary.classes
                 throw new Exception($"Invalid club record. Club with the registration already exists\n\t{aRecord}");
             }
 
-            return new Club(id, name, address, phone);
+            return new Club(id, address, name, phone);
         }
 
         public void SaveClubs(string fileName, string delimiter) {

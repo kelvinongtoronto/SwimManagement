@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmSwimManagement.cs">
+    <Compile Include="FormSwimManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSwimManagement.Designer.cs">
-      <DependentUpon>frmSwimManagement.cs</DependentUpon>
+    <Compile Include="FormSwimManagement.Designer.cs">
+      <DependentUpon>FormSwimManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmSwimManagement.resx">
-      <DependentUpon>frmSwimManagement.cs</DependentUpon>
+    <EmbeddedResource Include="FormSwimManagement.resx">
+      <DependentUpon>FormSwimManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

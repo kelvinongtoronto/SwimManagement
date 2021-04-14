@@ -33,23 +33,19 @@ namespace SwimManagementLibrary.classes
             Id = RegistrationNumberGenerator.GetNext();
         }
 
-        // use constructor initializer
-        public Registrant(string name, DateTime dateOfBirth, Address anAddress, ulong phoneNumber) :
-            this(RegistrationNumberGenerator.GetNext(), name, dateOfBirth, anAddress, phoneNumber)
+        public Registrant(string name, DateTime dateOfBirth, Address anAddress, ulong phoneNumber) : this()
         {
-
-        }
-
-        // used only internally within the library
-        internal Registrant(uint regNumber, string name, DateTime dateOfBirth, Address anAddress, ulong phoneNumber)
-        {
-            Id = regNumber;
             Name = name;
             DateOfBirth = dateOfBirth;
             Address = anAddress;
             PhoneNumber = phoneNumber;
         }
 
+        // used only internally within the library
+        internal Registrant(uint regNumber, string name, DateTime dateOfBirth, Address anAddress, ulong phoneNumber) : this(name, dateOfBirth, anAddress, phoneNumber)
+        {
+            Id = regNumber;
+        }
         public override string ToString()
         {
             string registrantInformation = $"Name: {Name}\nAddress: {Address}\n";
